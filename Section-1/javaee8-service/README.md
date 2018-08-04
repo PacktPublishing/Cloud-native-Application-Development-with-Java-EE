@@ -1,11 +1,14 @@
-# Cloud-native Application Development with Java EE
+# Video Instructions
 
-## Video 1.4: Getting started with Java EE 8 microservices 
+For each video, there is a Git branch with a matching name that acts as a
+starting point.
+
+## Video 1.4: Getting started with Java EE 8 microservices
 
 ### Step 1a: Build and dependency setup for Gradle
 
-Create a `build.gradle` file, apply the WAR plugin and add the Java EE 8 
-dependency (see https://mvnrepository.com/artifact/javax/javaee-api/8.0). 
+Create a `build.gradle` file, apply the WAR plugin and add the Java EE 8
+dependency (see https://mvnrepository.com/artifact/javax/javaee-api/8.0).
 This is what the final result should look like:
 ```groovy
 plugins {
@@ -21,8 +24,8 @@ dependencies {
 
 ### Step 1b: Build and dependency setup for Maven
 
-In case you prefer Maven as build tool, create a simple project with 
-packaging WAR. Go to https://mvnrepository.com/artifact/javax/javaee-api/8.0 
+In case you prefer Maven as build tool, create a simple project with
+packaging WAR. Go to https://mvnrepository.com/artifact/javax/javaee-api/8.0
 and insert the dependency definition into Maven `pom.xml` file.
 ```xml
 <dependency>
@@ -40,7 +43,7 @@ First, create the JAX-RS application class and add the `@ApplicationPath` annota
 @ApplicationPath("api")
 public class JAXRSConfiguration extends Application {
 }
-``` 
+```
 
 Next, create a resource class for your Hello REST endpoint.
 ```java
@@ -103,11 +106,11 @@ docker build -t javaee8-service:1.1 -f Builderfile .
 docker run -it -p 8080:8080 javaee8-service:1.1
 ```
 
-### Step 3: Tuning the JVM to run in a containerized environment 
+### Step 3: Tuning the JVM to run in a containerized environment
 
 Careful when putting the JVM into a container. You may have to tune it for for JVMs prior to JDK10.
 The following `ENTRYPOINT` shows some of the parameters.
-``` 
+```
 ENTRYPOINT ["java", "-server", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-XX:MaxRAMFraction=3", "-XX:ThreadStackSize=256", "-XX:MaxMetaspaceSize=128m", "-XX:+UseG1GC", "-XX:ParallelGCThreads=2", "-XX:CICompilerCount=2", "-XX:+UseStringDeduplication", "-jar", "/opt/payara/payara-micro.jar"]
 CMD ["--deploymentDir", "/opt/payara/deployments"]
 ```
@@ -130,7 +133,7 @@ services:
     - "8080:8080"
     networks:
     - jee8net
-    
+
 networks:
   jee8net:
     driver: bridge
@@ -165,7 +168,7 @@ Add the following YAML to your `docker-compose.yml` to add a message queue and a
     - "8161:8161"   # the admin web UI
     networks:
     - jee8net
-    
+
   postgres-db:
     image: "postgres:9.6.3"
     environment:
