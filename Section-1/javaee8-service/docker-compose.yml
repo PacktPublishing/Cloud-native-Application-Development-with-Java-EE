@@ -1,0 +1,68 @@
+version: "3"
+
+services:
+  javaee8-service:
+    build:
+      context: .
+    image: javaee8-service:1.0
+    ports:
+    - "8080:8080"
+    depends_on:
+    - message-queue
+    - postgres-db
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: loadbalancer
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+  message-queue:
+    image: vromero/activemq-artemis:2.6.1
+    environment:
+    - ENABLE_JMX_EXPORTER=true
+    expose:
+    - "61616"       # the JMS port
+    - "1883"        # the MQTT port
+    - "5672"        # the AMQP port
+    ports:
+    - "8161:8161"   # the admin web UI
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
+
+  postgres-db:
+    image: "postgres:9.6.3"
+    environment:
+    - POSTGRES_USER=javaee8
+    - POSTGRES_PASSWORD=12qwasyx
+    ports:
+    - "5432:5432"
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 128M
+
+networks:
+  jee8net:
+    driver: bridge

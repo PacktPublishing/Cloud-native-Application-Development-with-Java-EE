@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: message-queue
+  name: message-queue
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: message-queue
+    spec:
+      containers:
+      - image: vromero/activemq-artemis:2.6.1
+        name: message-queue
+        env:
+        - name: ENABLE_JMX_EXPORTER
+          value: "true"
+        ports:
+        - containerPort: 8161   # admin UI
+        - containerPort: 61616  # the JMS port
+        - containerPort: 1883   # the MQTT port
+        - containerPort: 5672   # the AMQP port
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            memory: 512Mi
+      restartPolicy: Always
+

@@ -1,0 +1,11 @@
+FROM azul/zulu-openjdk:8u181 as builder
+
+RUN mkdir /codebase
+COPY . /codebase/
+
+WORKDIR /codebase
+RUN ./gradlew build
+
+FROM qaware/zulu-alpine-payara-micro:8u181-5.182
+
+COPY --from=builder /codebase/build/libs/javaee8-service.war /opt/payara/deployments/

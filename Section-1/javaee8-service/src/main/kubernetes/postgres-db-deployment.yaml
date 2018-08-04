@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: postgres-db
+  name: postgres-db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: postgres-db
+    spec:
+      containers:
+      - image: postgres:9.6.3
+        name: postgres-db
+        env:
+        - name: POSTGRES_PASSWORD
+          value: 12qwasyx
+        - name: POSTGRES_USER
+          value: javaee8
+        ports:
+        - containerPort: 5432
+        resources:
+          limits:
+            memory: 128Mi
+          requests:
+            memory: 128Mi
+      restartPolicy: Always
