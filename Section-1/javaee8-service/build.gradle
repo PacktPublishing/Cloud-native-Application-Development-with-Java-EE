@@ -5,5 +5,5 @@ plugins {
 repositories { jcenter() }
 
 dependencies {
-    providedCompile 'javax:javaee-api:8.0'
+    // TODO add Java EE 8 dependency to build.gradle
 }
