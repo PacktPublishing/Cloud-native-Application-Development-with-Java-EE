@@ -52,8 +52,10 @@ public class HelloWorldResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject helloWorld() {
+        String hostname = ofNullable(getenv("HOSTNAME")).orElse("localhost");
         return Json.createObjectBuilder()
                 .add("message", "Cloud Native Application Development with Java EE.")
+                .add("hostname", hostname)
                 .build();
     }
 }
