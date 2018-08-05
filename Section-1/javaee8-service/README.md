@@ -212,9 +212,15 @@ docker stack rm javaee8
 ### Step 2: Go from Docker Compose to Kubernetes with http://kompose.io
 
 Download the latest release of Kompose from Github and put the binary on your `PATH`.
+You may want to modify the conversion using labels, like
+```yaml
+  labels:
+    kompose.service.type: nodeport
+```
+
 Then issue the following command to convert the `docker-compose.yml` into Kubernetes YAMLs.
 ```
-kompose convert -f docker-compose.yml -o src/main/kubernetes/
+kompose convert -f docker-compose.yml -o build/
 ```
 
 ### Step 3: Deploy and Run everything on Kubernetes
