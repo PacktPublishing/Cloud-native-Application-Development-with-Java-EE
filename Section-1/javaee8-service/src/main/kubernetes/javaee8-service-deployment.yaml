@@ -5,7 +5,7 @@ metadata:
     io.kompose.service: javaee8-service
   name: javaee8-service
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
