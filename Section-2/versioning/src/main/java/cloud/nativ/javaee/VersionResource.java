@@ -18,6 +18,7 @@ public class VersionResource {
     @Path("v1")
     public VersionResourceV1 v1() {
         // alternatively we could return VersionResourceV1.class
+        // careful, because injection does not work here
         return new VersionResourceV1();
     }
 
