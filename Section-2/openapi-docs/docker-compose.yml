@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  openapi-docs:
+    build:
+      context: .
+    image: openapi-docs:1.0.1
+    ports:
+    - "8080:8080"
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: loadbalancer
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+  # https://github.com/Mermade/openapi-gui
+  openapi-gui:
+    image: mermade/openapi-gui
+    ports:
+    - 3000:3000
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+      deploy:
+        replicas: 1
+
+networks:
+  jee8net:
+    driver: bridge
