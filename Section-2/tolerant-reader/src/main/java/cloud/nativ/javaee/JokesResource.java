@@ -1,15 +1,23 @@
-# Video Instructions
+package cloud.nativ.javaee;
 
-For each video, there is a Git branch with a matching name that acts as a
-starting point.
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonPointer;
+import javax.json.JsonString;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import java.util.concurrent.TimeUnit;
 
-## Video 2.2:  Implementing tolerant reader with JSON-P
-
-### Step 1: Tolerant reader on the JAX-RS client side
-
-In this step we are implementing a tolerant reader for the ChuckNorris API.
-
-```java
 @ApplicationScoped
 @Path("jokes")
 public class JokesResource {
@@ -46,30 +54,3 @@ public class JokesResource {
         return Response.ok(value).link(uri, "_self").build();
     }
 }
-```
-
-### Step 2: Tolerant processing on the JAX-RS server side
-
-```java
-@RequestScoped
-@Path("tolerant")
-public class TolerantResource {
-
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response postTolerantPayload(@NotNull JsonObject payload) {
-
-        JsonPatch patch = Json.createPatchBuilder()
-                .test("/version", "v1")
-                .build();
-        
-        try {
-            JsonObject applied = patch.apply(payload);
-            return Response.ok(applied).build();
-        } catch (JsonException e) {
-            JsonObject error = Json.createObjectBuilder().add("message", e.getMessage()).build();
-            return Response.status(Response.Status.BAD_REQUEST).entity(error).build();
-        }
-    }
-}
-```
