@@ -34,8 +34,8 @@ public class OpenWeatherMapRepository {
         }
     }
 
-    @Timeout(value = 5L, unit = ChronoUnit.SECONDS)
-    @Retry(delay = 500L, maxRetries = 1)
+    @Retry(delay = 100, maxDuration = 500, durationUnit = ChronoUnit.MILLIS, maxRetries = 2)
+    @Timeout(value = 2000, unit = ChronoUnit.MILLIS)
     @Fallback(fallbackMethod = "defaultWeather")
     public String getWeather(String city) {
         JsonObject response = openWeatherMap.getWeather(city, "b6907d289e10d714a6e88b30761fae22");

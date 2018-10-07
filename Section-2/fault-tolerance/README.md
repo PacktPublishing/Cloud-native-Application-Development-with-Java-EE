@@ -56,8 +56,8 @@ public interface OpenWeatherMap {
 
 Add the following annotations to the repository method 
 ```java
-    @Timeout(value = 5L, unit = ChronoUnit.SECONDS)
-    @Retry(delay = 500L, maxRetries = 1)
+    @Retry(delay = 100, maxDuration = 2, durationUnit = ChronoUnit.SECONDS, maxRetries = 2)
+    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "defaultWeather")
 ```
 
