@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  tolerant-reader:
+    build:
+      context: .
+    image: tolerant-reader:1.0.1
+    ports:
+    - "8080:8080"
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: loadbalancer
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+networks:
+  jee8net:
+    driver: bridge

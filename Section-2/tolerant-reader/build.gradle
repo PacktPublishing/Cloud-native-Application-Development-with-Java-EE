@@ -1,0 +1,9 @@
+plugins {
+    id 'war'
+}
+
+repositories { jcenter() }
+
+dependencies {
+    providedCompile 'javax:javaee-api:8.0'
+}
