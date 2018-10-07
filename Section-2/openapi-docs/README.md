@@ -34,3 +34,66 @@ Add a `package-info.java` to the root package and add the following `@OpenAPIDef
 )
 ```
 
+### Step 3: Add OpenAPI definitions to REST schema
+
+Add the following annotations to the `Book` schema type.
+```java
+@Schema(name = "Book", description = "POJO that represents a book.")
+public class Book {
+
+    @Schema(required = true, example = "978-0345391803")
+    @JsonbProperty("isbn-13")
+    public String isbn13;
+
+    @Schema(required = true, example = "The Hitchhiker's Guide to the Galaxy")
+    public String title;
+
+    @JsonbCreator
+    public Book(@JsonbProperty("isbn-13") String isbn13, @JsonbProperty("title") String title) {
+        this.isbn13 = isbn13;
+        this.title = title;
+    }
+}
+```
+
+### Step 4: Add OpenAPI definitions to REST operations
+
+Add the following annotations to the `books()` method.
+```java
+    @Operation(summary = "Get all books.", description = "Retrieves the list of all books.")
+    @APIResponse(responseCode = "200", description = "The list of all books.",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(type = SchemaType.ARRAY, implementation = Book.class)))
+```
+
+Add the following annotations to the `create()` method.
+```java
+    @Operation(summary = "Create a new book.", description = "Creates a new book.")
+    @APIResponse(responseCode = "201", description = "The book has been created.")
+    @RequestBody(name = "book", required = true,
+            content = @Content(mediaType = "application/json", schema = @Schema(ref = "Book")))
+```
+
+Add the following annotations to the `get()` method.
+```java
+    @Operation(summary = "Get book.", description = "Get a book by ISBN-13.")
+    @APIResponse(name = "ok", responseCode = "200", description = "The list of all books.",
+            content = @Content(mediaType = "application/json", schema = @Schema(ref = "Book")))
+    @APIResponse(responseCode = "404", description = "The book was not found.")
+```
+
+Add the following annotations to the `update()` method.
+```java
+    @Operation(summary = "Update book.", description = "Update book identified by ISBN-13.")
+    @APIResponse(responseCode = "200", description = "Update successful.")
+    @APIResponse(responseCode = "400", description = "The ISBN did not match or request was invalid.")
+    @RequestBody(name = "book", required = true,
+            content = @Content(mediaType = "application/json", schema = @Schema(ref = "Book")))
+```
+
+Add the following annotations to the `delete()` method.
+```java
+    @Operation(summary = "Delete book.", description = "Delete a book identified by ISBN-13.")
+    @APIResponse(responseCode = "204", description = "Delete successful.")
+    @APIResponse(responseCode = "404", description = "The book was not found.")
+```
