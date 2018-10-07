@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  messaging-service:
+    build:
+      context: .
+    image: messaging-service:1.0.1
+    ports:
+    - "8080:8080"
+    depends_on:
+    - message-queue
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: loadbalancer
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+  message-queue:
+    image: rmohr/activemq:5.15.6
+    expose:
+    - "61616"       # the JMS port
+    - "1883"        # the MQTT port
+    - "5672"        # the AMQP port
+    ports:
+    - "8161:8161"   # the admin web UI
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 512M
+
+networks:
+  jee8net:
+    driver: bridge

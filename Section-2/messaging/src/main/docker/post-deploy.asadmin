@@ -1,0 +1,8 @@
+deploy --type rar --name activemq-rar /opt/payara/deployments/activemq-rar.rar
+
+create-resource-adapter-config --property ServerUrl='tcp://message-queue:61616':UserName='admin':Password='admin' activemq-rar
+create-connector-connection-pool --raname activemq-rar --connectiondefinition javax.jms.ConnectionFactory --ping false --isconnectvalidatereq true jms/activeMqConnectionPool
+create-connector-resource --poolname jms/activeMqConnectionPool jms/activeMqConnectionFactory
+create-admin-object --raname activemq-rar --restype javax.jms.Topic --property PhysicalName=MESSAGE.EVENTS jms/MessageEvents
+
+deploy --type war /opt/payara/deployments/messaging-service.war
