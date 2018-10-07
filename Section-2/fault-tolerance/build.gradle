@@ -1,0 +1,12 @@
+plugins {
+    id 'war'
+}
+
+repositories { jcenter() }
+
+dependencies {
+    providedCompile 'javax:javaee-api:8.0'
+
+    providedCompile 'org.eclipse.microprofile.fault-tolerance:microprofile-fault-tolerance-api:1.1.2'
+    providedCompile 'org.eclipse.microprofile.rest.client:microprofile-rest-client-api:1.1'
+}
