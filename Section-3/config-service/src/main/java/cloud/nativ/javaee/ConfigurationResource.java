@@ -21,9 +21,6 @@ public class ConfigurationResource {
     @Inject
     private Config config;
 
-    @Inject
-    private ConfigurationBean configurationBean;
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response info() {
