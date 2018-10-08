@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  cluster-schedule-1:
+    build:
+      context: .
+    image: cluster-schedule-1:1.0.1
+    ports:
+    - "8080:8080"
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+  cluster-schedule-2:
+    build:
+      context: .
+    image: cluster-schedule-2:1.0.1
+    ports:
+    - "8080:8080"
+    networks:
+    - jee8net
+    labels:
+      kompose.service.type: nodeport
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 640M
+        reservations:
+          memory: 640M
+
+networks:
+  jee8net:
+    driver: bridge
