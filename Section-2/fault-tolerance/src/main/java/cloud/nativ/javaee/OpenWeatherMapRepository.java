@@ -1,7 +1,7 @@
 package cloud.nativ.javaee;
 
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
-import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 
@@ -34,7 +34,7 @@ public class OpenWeatherMapRepository {
         }
     }
 
-    @Retry(delay = 100, maxDuration = 500, durationUnit = ChronoUnit.MILLIS, maxRetries = 2)
+    @CircuitBreaker(delay = 3000L, failureRatio = 0.75, requestVolumeThreshold = 10)
     @Timeout(value = 2000, unit = ChronoUnit.MILLIS)
     @Fallback(fallbackMethod = "defaultWeather")
     public String getWeather(String city) {
