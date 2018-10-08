@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "772d30a6-d61d-47ef-8660-5342d629b0db",
+		"name": "Tolerant Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Random Joke",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/jokes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"jokes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /tolerant v2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"version\": \"v2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tolerant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tolerant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /tolerant v1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"version\": \"v1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tolerant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tolerant"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
