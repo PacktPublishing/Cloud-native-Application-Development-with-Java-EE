@@ -24,6 +24,7 @@ public class SecretsResource {
                 .add("env.user.password", configuration.getEnvPassword())
                 .add("secret.user.username", configuration.getSecretUsername())
                 .add("secret.user.password", configuration.getSecretPassword())
+                .add("a.secret.decrypted", configuration.getSecret().decrypt())
                 .build();
     }
 }

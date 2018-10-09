@@ -1,5 +1,6 @@
 package cloud.nativ.javaee;
 
+import cloud.nativ.javaee.config.Secret;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -25,6 +26,10 @@ public class SecretsConfiguration {
     @ConfigProperty(name = "secret.user.password")
     private Provider<String> secretPassword;
 
+    @Inject
+    @ConfigProperty(name = "a.secret")
+    private Secret secret;
+
     public String getEnvUsername() {
         return envUsername.get();
     }
@@ -39,5 +44,9 @@ public class SecretsConfiguration {
 
     public String getSecretPassword() {
         return secretPassword.get();
+    }
+
+    public Secret getSecret() {
+        return secret;
     }
 }
