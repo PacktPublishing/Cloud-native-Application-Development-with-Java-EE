@@ -1,0 +1,3 @@
+set-config-secrets-dir --directory=/secrets
+
+deploy --type war /opt/payara/deployments/secrets-service.war

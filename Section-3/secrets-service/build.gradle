@@ -6,4 +6,5 @@ repositories { jcenter() }
 
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
+    providedCompile 'org.eclipse.microprofile.config:microprofile-config-api:1.3'
 }
