@@ -6,7 +6,7 @@ import java.security.GeneralSecurityException;
 import java.util.Base64;
 
 /**
- * A Secret implementation to decrypt RSA encrypted secrets.
+ * A Secret implementation to decrypt symmetric AES encrypted secrets.
  */
 public class Secret {
 
@@ -19,8 +19,10 @@ public class Secret {
         if (!encrypted.startsWith("{AES:")) {
             throw new IllegalArgumentException("Invalid ");
         }
+
         this.encrypted = encrypted.substring(5, encrypted.length() - 1);
         this.secretKey = new SecretKeySpec("MySecr3tPassw0rd".getBytes(), "AES");
+
         try {
             this.cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
