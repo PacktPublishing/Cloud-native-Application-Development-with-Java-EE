@@ -175,10 +175,10 @@ public class CloudNativeEventStorage {
 
 We also need to configure the persistence unit, so add the following content to the `persistence.xml` file.
 ```xml
-<persistence version="2.1"
+<persistence version="2.2"
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
     <persistence-unit name="cloudNativeDb" transaction-type="JTA">
         <jta-data-source>jdbc/CloudNativeDb</jta-data-source>
