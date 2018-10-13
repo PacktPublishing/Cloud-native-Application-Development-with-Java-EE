@@ -8,7 +8,14 @@
 
         <class>cloud.nativ.javaee.CloudNativeEvent</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+        <!-- Disable share cache -->
         <shared-cache-mode>NONE</shared-cache-mode>
+
+        <!--
+            Alternatively use Payara Cache coordination
+            https://payara.gitbooks.io/payara-server/documentation/payara-server/jpa-cache-coordination.html
+        -->
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
