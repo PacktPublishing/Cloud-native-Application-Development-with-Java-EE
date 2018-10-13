@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS cloud_native_db
+CREATE DATABASE cloud_native_db

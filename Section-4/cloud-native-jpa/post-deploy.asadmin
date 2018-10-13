@@ -1,0 +1,9 @@
+create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property portNumber=26257:password='root':user='root':serverName=cockroach-db:databaseName='cloud_native_db' PostgresPool
+create-jdbc-resource --connectionpoolid PostgresPool jdbc/CloudNativeDb
+
+set resources.jdbc-connection-pool.PostgresPool.connection-validation-method=custom-validation
+set resources.jdbc-connection-pool.PostgresPool.validation-classname=org.glassfish.api.jdbc.validation.PostgresConnectionValidation
+set resources.jdbc-connection-pool.PostgresPool.is-connection-validation-required=true
+set resources.jdbc-connection-pool.PostgresPool.fail-all-connections=true
+
+deploy --type war /opt/payara/deployments/cloud-native-jpa.war

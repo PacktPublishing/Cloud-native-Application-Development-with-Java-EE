@@ -1,23 +1,55 @@
 version: "3"
 
 services:
+  cockroach1:
+    image: cockroachdb/cockroach:v2.0.5
+    hostname: cockroach1
+    command: start --insecure
+    ports:
+    - "26257:26257"
+    - "8080:8080"
+    volumes:
+    - "${PWD}/cockroach/data/cockroach1:/cockroach/cockroach-data"
+    networks:
+      jee8net:
+        aliases:
+        - cockroach-db
+        - postgres-db
+
+  cockroach2:
+    image: cockroachdb/cockroach:v2.0.5
+    hostname: cockroach2
+    command: start --insecure --join=cockroach1
+    volumes:
+    - "${PWD}/cockroach/data/cockroach2:/cockroach/cockroach-data"
+    depends_on:
+    - cockroach1
+    links:
+    - cockroach1
+    networks:
+    - jee8net
+
+  cockroach3:
+    image: cockroachdb/cockroach:v2.0.5
+    hostname: cockroach3
+    command: start --insecure --join=cockroach1
+    volumes:
+    - "${PWD}/cockroach/data/cockroach3:/cockroach/cockroach-data"
+    depends_on:
+    - cockroach1
+    links:
+    - cockroach1
+    networks:
+    - jee8net
+
   cloud-native-jpa:
     build:
       context: .
     image: cloud-native-jpa:1.0.1
     ports:
-    - "8080:8080"
+    - "18080:8080"
     networks:
     - jee8net
-    labels:
-      kompose.service.type: loadbalancer
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          memory: 640M
-        reservations:
-          memory: 640M
 
 networks:
   jee8net:
