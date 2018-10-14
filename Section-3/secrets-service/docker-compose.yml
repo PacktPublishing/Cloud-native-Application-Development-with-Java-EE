@@ -7,11 +7,7 @@ services:
     image: secrets-service:1.0.1
     ports:
     - "8080:8080"
-    environment:
-    - ENV_USER_NAME
-    - ENV_USER_PASSWORD
-    volumes:
-    - ./src/test/resources:/secrets:ro
+    # TODO add secrets
     networks:
     - jee8net
     labels:

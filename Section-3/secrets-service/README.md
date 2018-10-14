@@ -74,7 +74,7 @@ $ echo -n 'jamesbond007' | base64
 amFtZXNib25kMDA3
 ```
 
-Next, we create a Kubernetes YAML definition of a Secret in 
+Next, we create a Kubernetes YAML definition of a Secret in `super-secret.yaml`.
 
 ```yaml
 apiVersion: v1
