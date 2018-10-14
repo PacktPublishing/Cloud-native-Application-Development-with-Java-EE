@@ -51,12 +51,12 @@ public class ConfigurationBean {
 
 To convert configuration values to non standard data types, implement a custom converter.
 ```java
-public class URLConverter implements Converter<URL> {
+public class JsonObjectConverter implements Converter<JsonObject> {
     @Override
-    public URL convert(String value) {
+    public JsonObject convert(String value) {
         try {
-            return new URL(value);
-        } catch (MalformedURLException e) {
+            return Json.createReader(new StringReader(value)).readObject();
+        } catch (JsonException e) {
             throw new IllegalArgumentException(e);
         }
     }
@@ -65,6 +65,12 @@ public class URLConverter implements Converter<URL> {
 
 You need to register all custom converters in the service loader file 
 `src/main/resources/META-INF/org.eclipse.microprofile.config.spi.Converter`.
+
+```java
+    @Inject
+    @ConfigProperty(name = "a.json.object")
+    private JsonObject aJsonObject;
+```
 
 ### Step 4: Programmatic configuration
 
