@@ -18,7 +18,7 @@ public class SessionResource {
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response put(@PathParam("name") String name) {
+    public Response getAttribute(@PathParam("name") String name) {
         Object payload = Optional.ofNullable(request.getSession().getAttribute(name)).orElseThrow(NotFoundException::new);
         return Response.ok(payload).build();
     }
@@ -26,7 +26,7 @@ public class SessionResource {
     @POST
     @Path("/{name}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response update(@PathParam("name") String name, String payload) {
+    public Response setAttribute(@PathParam("name") String name, String payload) {
         request.getSession().setAttribute(name, payload);
         return Response.ok().build();
     }
