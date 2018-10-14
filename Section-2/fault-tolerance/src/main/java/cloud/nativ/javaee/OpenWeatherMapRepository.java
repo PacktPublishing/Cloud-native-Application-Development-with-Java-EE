@@ -28,6 +28,8 @@ public class OpenWeatherMapRepository {
         try {
             openWeatherMap = RestClientBuilder.newBuilder()
                     .baseUri(new URI("https://samples.openweathermap.org"))
+                    .property("jersey.config.client.connectTimeout", 500)
+                    .property("jersey.config.client.readTimeout", 100)
                     .build(OpenWeatherMap.class);
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException(e);
