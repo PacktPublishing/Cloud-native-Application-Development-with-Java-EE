@@ -139,3 +139,25 @@ public void automaticTimeout() {
     }
 }
 ```
+
+```java
+@Timeout
+public void programmaticTimeout(Timer timer) {
+    ILock lock = hazelcast.getLock("programmaticTimeoutLock");
+    if (lock.tryLock()) {
+        try {
+            programmaticTimeoutCounter.inc();
+            LOGGER.log(Level.INFO, "Programmatic timer execution {0} at {1}.",
+                    new Object[]{programmaticTimeoutCounter.getCount(), LocalDateTime.now()});
+
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } finally {
+            lock.unlock();
+        }
+    } else {
+        LOGGER.log(Level.INFO, "Skip programmatic timer execution. Locked by another instance.");
+    }
+}
+```
