@@ -20,7 +20,6 @@ import java.io.*;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
-import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -31,8 +30,6 @@ import java.util.zip.GZIPOutputStream;
 @Path("cache")
 @Produces(MediaType.APPLICATION_JSON)
 public class CacheResource {
-
-    private static final Logger LOGGER = Logger.getLogger(CacheResource.class.getName());
 
     @Inject
     private CacheManager cacheManager;
