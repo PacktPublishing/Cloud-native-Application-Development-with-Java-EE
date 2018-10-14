@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "8c6ea465-667f-494d-acfa-e5a663d49a21",
+    "name": "Stateful Webapp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Hello from Webapp 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/session/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "session",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Hello to Webapp 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello World.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/session/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "session",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Hello from Webapp 2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/session/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "session",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Hello to Webapp 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello World.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/session/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "session",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
