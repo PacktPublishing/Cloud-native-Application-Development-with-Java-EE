@@ -1,21 +1,7 @@
 version: "3"
 
 services:
-  cluster-schedule-1:
-    build:
-      context: .
-    image: cluster-schedule:1.0.1
-    ports:
-    - "18080:8080"
-    networks:
-    - jee8net
-
-  cluster-schedule-2:
-    image: cluster-schedule:1.0.1
-    ports:
-    - "28080:8080"
-    networks:
-    - jee8net
+# TODO add services
 
 networks:
   jee8net:
