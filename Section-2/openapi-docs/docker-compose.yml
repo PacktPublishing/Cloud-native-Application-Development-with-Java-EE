@@ -28,8 +28,8 @@ services:
     - jee8net
     labels:
       kompose.service.type: nodeport
-      deploy:
-        replicas: 1
+    deploy:
+      replicas: 1
 
 networks:
   jee8net:
