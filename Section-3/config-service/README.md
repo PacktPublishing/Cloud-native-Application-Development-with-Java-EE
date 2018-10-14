@@ -47,6 +47,9 @@ public class ConfigurationBean {
 }
 ```
 
+The values are either taken from system properties, ENV variables or the contents
+of the `microprofile-config.properties` file.
+
 ### Step 3: Add custom MicroProfile Config converters
 
 To convert configuration values to non standard data types, implement a custom converter.

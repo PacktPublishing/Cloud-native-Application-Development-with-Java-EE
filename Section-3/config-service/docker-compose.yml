@@ -5,6 +5,9 @@ services:
     build:
       context: .
     image: config-service:1.0.1
+    environment:
+    - A_OPTIONAL_STRING=Value from Docker Compose ENV
+    - A_LONG=1234567890
     ports:
     - "8080:8080"
     networks:

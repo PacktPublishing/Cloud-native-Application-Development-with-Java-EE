@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "f81c656b-f138-4fc3-b9db-d3aa941440d9",
+    "name": "Config Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Configuration Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/configuration",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "configuration"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Configuration String Array",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/configuration/a.string.array",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "configuration",
+            "a.string.array"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Configuration HOSTNAME",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/configuration/hostname",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "configuration",
+            "hostname"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Configuration a.long",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/configuration/a.long",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "configuration",
+            "a.long"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Configuration a.optional.string",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/configuration/a.optional.string",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "configuration",
+            "a.optional.string"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
