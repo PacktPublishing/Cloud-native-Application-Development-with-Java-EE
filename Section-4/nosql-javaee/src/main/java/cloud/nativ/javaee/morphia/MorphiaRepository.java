@@ -35,7 +35,6 @@ public class MorphiaRepository {
         return query.asList();
     }
 
-
     public String save(MorphiaPojo payload) {
         Key<MorphiaPojo> saved = datastore.save(payload);
         return ((ObjectId) saved.getId()).toHexString();
