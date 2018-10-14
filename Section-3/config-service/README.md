@@ -50,6 +50,12 @@ public class ConfigurationBean {
 The values are either taken from system properties, ENV variables or the contents
 of the `microprofile-config.properties` file.
 
+```yaml
+environment:
+- A_OPTIONAL_STRING=Value from Docker Compose ENV
+- A_LONG=1234567890
+```
+
 ### Step 3: Add custom MicroProfile Config converters
 
 To convert configuration values to non standard data types, implement a custom converter.
