@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "cc4e9791-8541-4d73-ada9-8674a09e2ee0",
+		"name": "Cluster Schedule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Application Metrics Instance 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:18080/metrics/application",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18080",
+					"path": [
+						"metrics",
+						"application"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Application Metrics Instance 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:28080/metrics/application",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "28080",
+					"path": [
+						"metrics",
+						"application"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

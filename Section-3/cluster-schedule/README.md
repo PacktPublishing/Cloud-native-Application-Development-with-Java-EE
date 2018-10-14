@@ -18,14 +18,14 @@ services:
       context: .
     image: cluster-schedule:1.0.1
     ports:
-    - "8081:8080"
+    - "18080:8080"
     networks:
     - jee8net
 
   cluster-schedule-2:
     image: cluster-schedule:1.0.1
     ports:
-    - "8082:8080"
+    - "28080:8080"
     networks:
     - jee8net
 
@@ -105,6 +105,11 @@ public class ClusterScheduleProgBean {
 
 Currently the individual timer EJBs all run concurrently when running multiple instances. This may not be desirable.
 To avoid this, we can use a distributed lock from Hazelcast to synchronize the instances.
+
+Make sure you have the following dependency defined in your `build.gradle` file.
+```groovy
+providedCompile 'com.hazelcast:hazelcast:3.10.5'
+```
 
 First, import the Hazelcast instance from Payara bound to the `payara/Hazelcast` JNDI name.
 ```java
