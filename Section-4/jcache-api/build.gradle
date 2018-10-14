@@ -6,4 +6,6 @@ repositories { jcenter() }
 
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
+
+    providedCompile 'javax.cache:cache-api:1.0.0'
 }

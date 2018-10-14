@@ -1,23 +1,21 @@
 version: "3"
 
 services:
-  jcache-api:
+  jcache-api-1:
     build:
       context: .
     image: jcache-api:1.0.1
     ports:
-    - "8080:8080"
+    - "18080:8080"
     networks:
     - jee8net
-    labels:
-      kompose.service.type: loadbalancer
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          memory: 640M
-        reservations:
-          memory: 640M
+
+  jcache-api-2:
+    image: jcache-api:1.0.1
+    ports:
+    - "28080:8080"
+    networks:
+    - jee8net
 
 networks:
   jee8net:

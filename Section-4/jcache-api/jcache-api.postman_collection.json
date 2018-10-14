@@ -1,0 +1,320 @@
+{
+  "info": {
+    "_postman_id": "dbca2713-2559-4991-b1a8-64247d363521",
+    "name": "JCache API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Cache by Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/test",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "test"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT test Cache by Name",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/test",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "test"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Cache value by Key (Instance 1)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/test/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "test",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Cache Value by Key (Instance 1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello JCache API\",\n\t\"magic\": 42,\n\t\"instance\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/test/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "test",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Cache value by Key (Instance 2)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/cache/test/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "cache",
+            "test",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Cache Value by Key (Instance 2)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello JCache API\",\n\t\"magic\": 42,\n\t\"instance\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/cache/test/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "cache",
+            "test",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Cache expiry",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/expiry",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "expiry"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Cache expiry (Instance 1)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/expiry/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "expiry",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Cache expiry (Instance 1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello JCache API\",\n\t\"magic\": 42,\n\t\"instance\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:18080/api/cache/expiry/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "18080",
+          "path": [
+            "api",
+            "cache",
+            "expiry",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Cache expiry (Instance 2)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/cache/expiry/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "cache",
+            "expiry",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Cache expiry (Instance 2)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"message\": \"Hello JCache API\",\n\t\"magic\": 42,\n\t\"instance\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:28080/api/cache/expiry/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "28080",
+          "path": [
+            "api",
+            "cache",
+            "expiry",
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
