@@ -1,6 +1,13 @@
 version: "3"
 
 services:
+  mongodb:
+    image: mongo:3.6
+    ports:
+    - "27017:27017"
+    networks:
+    - jee8net
+
   nosql-javaee:
     build:
       context: .
@@ -9,15 +16,6 @@ services:
     - "8080:8080"
     networks:
     - jee8net
-    labels:
-      kompose.service.type: loadbalancer
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          memory: 640M
-        reservations:
-          memory: 640M
 
 networks:
   jee8net:

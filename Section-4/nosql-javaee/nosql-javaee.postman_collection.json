@@ -1,0 +1,169 @@
+{
+  "info": {
+    "_postman_id": "02417f2b-4678-49d0-81d0-b716d4bf2246",
+    "name": "NoSQL Java EE",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET All Person Collection",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/mongo/person",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mongo",
+            "person"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Person to Collection",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"M.-Leander Reimer\",\n\t\"company\": \"QAware GmbH\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/mongo/person",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mongo",
+            "person"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Person from Collection",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8080/api/mongo/person/f74d473a-9dc9-45e2-a700-ef0218ee2cf6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "mongo",
+            "person",
+            "f74d473a-9dc9-45e2-a700-ef0218ee2cf6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Morphia Pojos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/morphia",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "morphia"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Morphia Pojo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"the-name\": \"Java EE 8 and Morphia\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/morphia",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "morphia"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Single Morphia Pojo",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/morphia/5bc2f9656ce0450001e79260",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "morphia",
+            "5bc2f9656ce0450001e79260"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
