@@ -1,21 +1,8 @@
 version: "3"
 
 services:
-  stateful-webapp-1:
-    build:
-      context: .
-    image: stateful-webapp:1.0.1
-    ports:
-    - "18080:8080"
-    networks:
-    - jee8net
 
-  stateful-webapp-2:
-    image: stateful-webapp:1.0.1
-    ports:
-    - "28080:8080"
-    networks:
-    - jee8net
+  # TODO add stateful apps
 
 networks:
   jee8net:
