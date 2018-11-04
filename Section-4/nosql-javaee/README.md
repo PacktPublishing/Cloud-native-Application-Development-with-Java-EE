@@ -5,6 +5,9 @@ starting point.
 
 ## Video 4.3: Using NoSQL databases with Java EE
 
+In this video we are going to use MongoDB as a NoSQL database to store JSON
+documents and entities.
+
 ### Step 1: Infrastructure Setup for MongoDB
 
 Add the following definition to your `docker-compose.yml` file.
