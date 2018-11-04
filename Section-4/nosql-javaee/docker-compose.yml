@@ -1,12 +1,8 @@
 version: "3"
 
 services:
-  mongodb:
-    image: mongo:3.6
-    ports:
-    - "27017:27017"
-    networks:
-    - jee8net
+
+  # TODO add MongoDB
 
   nosql-javaee:
     build:

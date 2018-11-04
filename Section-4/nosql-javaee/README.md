@@ -124,7 +124,7 @@ public class MongoResource {
 }
 ```
 
-### Step 4a: Using MongoDB with Morphia and JSON-B
+### Step 4: Using MongoDB with Morphia and JSON-B
 
 If you like it more typed using POJOs, you can use the Morphia library (https://github.com/MorphiaOrg/morphia) which gives
 you a more JPA like feeling. In combination with JSON-B we can take care of the marshalling in JAX-RS.
@@ -240,7 +240,7 @@ public class MorphiaResource {
 }
 ```
 
-### Step 4b: Using MongoDB with JNoSQL and JSON-B
+### Bonus Step: Using MongoDB with JNoSQL and JSON-B
 
 Alternatively, you can use the JNoSql library to mimic the JPA APIs to access any
 NoSQL database.
