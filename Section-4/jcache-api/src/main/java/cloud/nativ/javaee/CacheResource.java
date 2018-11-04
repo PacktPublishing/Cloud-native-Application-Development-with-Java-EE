@@ -16,12 +16,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.io.*;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
 import java.util.Optional;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 /**
  * The REST resource to do stuff with the JCache provider.
@@ -52,7 +50,7 @@ public class CacheResource {
     @PUT
     @Path("/{name}")
     public Response createCacheByName(@PathParam("name") String name) {
-        Cache<String, byte[]> cache = getOrCreateCache(name);
+        Cache<String, String> cache = getOrCreateCache(name);
 
         URI uri = uriInfo.getBaseUriBuilder()
                 .path(CacheResource.class).path(CacheResource.class, "createCacheByName")
@@ -64,10 +62,10 @@ public class CacheResource {
     @GET
     @Path("/{name}/{key}")
     public Response getCacheEntry(@PathParam("name") String name, @PathParam("key") String key) {
-        Cache<String, byte[]> cache = getOrCreateCache(name);
-        byte[] value = Optional.ofNullable(cache.get(key)).orElseThrow(NotFoundException::new);
+        Cache<String, String> cache = getOrCreateCache(name);
+        String value = Optional.ofNullable(cache.get(key)).orElseThrow(NotFoundException::new);
 
-        try (JsonReader reader = Json.createReader(new StringReader(unzip(value)))) {
+        try (JsonReader reader = Json.createReader(new StringReader(value))) {
             return Response.ok(reader.readObject()).build();
         }
     }
@@ -81,8 +79,8 @@ public class CacheResource {
             writer.writeObject(value);
         }
 
-        Cache<String, byte[]> cache = getOrCreateCache(name);
-        cache.put(key, zip(json.toString()));
+        Cache<String, String> cache = getOrCreateCache(name);
+        cache.put(key, json.toString());
 
         URI uri = uriInfo.getBaseUriBuilder()
                 .path(CacheResource.class).path(CacheResource.class, "putCacheEntry")
@@ -91,57 +89,12 @@ public class CacheResource {
         return Response.created(uri).build();
     }
 
-    private Cache<String, byte[]> getOrCreateCache(String name) {
-        Cache<String, byte[]> cache = cacheManager.getCache(name, String.class, byte[].class);
+    private Cache<String, String> getOrCreateCache(String name) {
+        Cache<String, String> cache = cacheManager.getCache(name, String.class, String.class);
         if (cache == null) {
-            CompleteConfiguration<String, byte[]> config = new MutableConfiguration<String, byte[]>().setTypes(String.class, byte[].class);
+            CompleteConfiguration<String, String> config = new MutableConfiguration<String, String>().setTypes(String.class, String.class);
             cache = cacheManager.createCache(name, config);
         }
         return cache;
-    }
-
-    private byte[] zip(final String str) {
-        if ((str == null) || (str.length() == 0)) {
-            throw new IllegalArgumentException("Cannot zip null or empty string");
-        }
-
-        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
-            try (GZIPOutputStream gzipOutputStream = new GZIPOutputStream(byteArrayOutputStream)) {
-                gzipOutputStream.write(str.getBytes(StandardCharsets.UTF_8));
-            }
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e) {
-            throw new InternalServerErrorException("Failed to zip content", e);
-        }
-    }
-
-    private String unzip(final byte[] compressed) {
-        if ((compressed == null) || (compressed.length == 0)) {
-            throw new IllegalArgumentException("Cannot unzip null or empty bytes");
-        }
-        if (!isZipped(compressed)) {
-            return new String(compressed);
-        }
-
-        try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(compressed)) {
-            try (GZIPInputStream gzipInputStream = new GZIPInputStream(byteArrayInputStream)) {
-                try (InputStreamReader inputStreamReader = new InputStreamReader(gzipInputStream, StandardCharsets.UTF_8)) {
-                    try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
-                        StringBuilder output = new StringBuilder();
-                        String line;
-                        while ((line = bufferedReader.readLine()) != null) {
-                            output.append(line);
-                        }
-                        return output.toString();
-                    }
-                }
-            }
-        } catch (IOException e) {
-            throw new InternalServerErrorException("Failed to unzip content", e);
-        }
-    }
-
-    private boolean isZipped(final byte[] compressed) {
-        return (compressed[0] == (byte) (GZIPInputStream.GZIP_MAGIC)) && (compressed[1] == (byte) (GZIPInputStream.GZIP_MAGIC >> 8));
     }
 }

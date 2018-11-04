@@ -28,8 +28,7 @@
 
     <cache name="expiry">
         <key-type class-name="java.lang.String"/>
-        <!-- this is byte[] array value type -->
-        <value-type class-name="[B"/>
+        <value-type class-name="java.lang.String"/>
 
         <backup-count>1</backup-count>
         <async-backup-count>0</async-backup-count>
