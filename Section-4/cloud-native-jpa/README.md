@@ -21,7 +21,7 @@ Add the following definition to your `docker-compose.yml` file.
     - "26257:26257"
     - "8080:8080"
     volumes:
-    - "${PWD}/cockroach/data/cockroach1:/cockroach/cockroach-data"
+    - data-volume1:/cockroach/cockroach-data
     networks:
       jee8net:
         aliases:
@@ -33,7 +33,7 @@ Add the following definition to your `docker-compose.yml` file.
     hostname: cockroach2
     command: start --insecure --join=cockroach1
     volumes:
-    - "${PWD}/cockroach/data/cockroach2:/cockroach/cockroach-data"
+    - data-volume2:/cockroach/cockroach-data
     depends_on:
     - cockroach1
     links:
@@ -46,7 +46,7 @@ Add the following definition to your `docker-compose.yml` file.
     hostname: cockroach3
     command: start --insecure --join=cockroach1
     volumes:
-    - "${PWD}/cockroach/data/cockroach3:/cockroach/cockroach-data"
+    - data-volume3:/cockroach/cockroach-data
     depends_on:
     - cockroach1
     links:

@@ -9,7 +9,7 @@ services:
     - "26257:26257"
     - "8080:8080"
     volumes:
-    - "${PWD}/cockroach/data/cockroach1:/cockroach/cockroach-data"
+    - data-volume1:/cockroach/cockroach-data
     networks:
       jee8net:
         aliases:
@@ -21,7 +21,7 @@ services:
     hostname: cockroach2
     command: start --insecure --join=cockroach1
     volumes:
-    - "${PWD}/cockroach/data/cockroach2:/cockroach/cockroach-data"
+    - data-volume2:/cockroach/cockroach-data
     depends_on:
     - cockroach1
     links:
@@ -34,7 +34,7 @@ services:
     hostname: cockroach3
     command: start --insecure --join=cockroach1
     volumes:
-    - "${PWD}/cockroach/data/cockroach3:/cockroach/cockroach-data"
+    - data-volume3:/cockroach/cockroach-data
     depends_on:
     - cockroach1
     links:
@@ -54,3 +54,8 @@ services:
 networks:
   jee8net:
     driver: bridge
+
+volumes:
+  data-volume1:
+  data-volume2:
+  data-volume3:
