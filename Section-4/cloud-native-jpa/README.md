@@ -149,6 +149,37 @@ public class CloudNativeEvent {
 }
 ```
 
+Next, create a JPA `AttributeConverter` implementation that leverages JSON-P to
+transform JsonObjects to and from the database representation.
+
+```java
+@Converter
+public class JsonObjectConverter implements AttributeConverter<JsonObject, PGobject> {
+    @Override
+    public PGobject convertToDatabaseColumn(JsonObject attribute) {
+        PGobject po = new PGobject();
+        po.setType("jsonb");
+        try {
+            StringWriter stringWriter = new StringWriter();
+            try (JsonWriter writer = Json.createWriter(stringWriter)) {
+                writer.writeObject(attribute);
+            }
+            po.setValue(stringWriter.toString());
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
+        return po;
+    }
+
+    @Override
+    public JsonObject convertToEntityAttribute(PGobject dbData) {
+        try (JsonReader reader = Json.createReader(new StringReader(dbData.getValue()))) {
+            return reader.readObject();
+        }
+    }
+}
+```
+
 Now create a simple data access object to store and retrieve the `CloudNativeEvent` entities.
 ```java
 @Stateless
