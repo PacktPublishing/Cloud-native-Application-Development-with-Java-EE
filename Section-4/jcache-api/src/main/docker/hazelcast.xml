@@ -26,17 +26,7 @@
         <async-backup-count>0</async-backup-count>
     </cache>
 
-    <cache name="expiry">
-        <key-type class-name="java.lang.String"/>
-        <value-type class-name="java.lang.String"/>
-
-        <backup-count>1</backup-count>
-        <async-backup-count>0</async-backup-count>
-
-        <expiry-policy-factory>
-            <timed-expiry-policy-factory expiry-policy-type="MODIFIED" duration-amount="30" time-unit="SECONDS"/>
-        </expiry-policy-factory>
-    </cache>
+    <!-- add expiring cache -->
 
     <lite-member enabled="false"/>
 

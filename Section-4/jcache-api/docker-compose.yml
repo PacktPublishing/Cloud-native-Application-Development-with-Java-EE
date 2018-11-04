@@ -1,21 +1,8 @@
 version: "3"
 
 services:
-  jcache-api-1:
-    build:
-      context: .
-    image: jcache-api:1.0.1
-    ports:
-    - "18080:8080"
-    networks:
-    - jee8net
 
-  jcache-api-2:
-    image: jcache-api:1.0.1
-    ports:
-    - "28080:8080"
-    networks:
-    - jee8net
+  # TODO add cache instances
 
 networks:
   jee8net:
