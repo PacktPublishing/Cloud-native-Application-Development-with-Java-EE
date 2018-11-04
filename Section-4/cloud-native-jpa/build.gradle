@@ -10,24 +10,7 @@ lombok {
     sha256 = ""
 }
 
-configurations {
-    postgresql {
-        description = "PostgreSQL dependencies"
-        transitive = true
-    }
-
-    providedCompile.extendsFrom postgresql
-}
-
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
-
-    postgresql 'org.postgresql:postgresql:42.2.5'
 }
 
-task copyPostgresqlLibs(type: Copy) {
-    from configurations.postgresql
-    into "$buildDir/postgresql"
-}
-
-assemble.dependsOn copyPostgresqlLibs

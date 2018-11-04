@@ -208,3 +208,44 @@ We also need to configure the persistence unit, so add the following content to 
 
 </persistence>
 ```
+
+### Step 4: Add REST resource for CloudNativeEvents
+
+In this final step we create a simple REST resource to store and retrieve structured
+as well is unstructured JSON data from the database.
+
+```java
+@ApplicationScoped
+@Path("events")
+@Produces(MediaType.APPLICATION_JSON)
+public class CloudNativeEventResource {
+
+    @Inject
+    private CloudNativeEventStorage storage;
+
+    @GET
+    public Response events() {
+        JsonArrayBuilder response = Json.createArrayBuilder();
+        storage.all().parallelStream().map(CloudNativeEvent::toJson).forEach(response::add);
+        return Response.ok(response.build()).build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response persist(@NotNull JsonObject payload) {
+        CloudNativeEvent event = storage.persist(payload);
+        URI location = UriBuilder
+                .fromResource(CloudNativeEventResource.class)
+                .path("/{id}")
+                .resolveTemplate("id", event.getId())
+                .build();
+        return Response.created(location).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response get(@PathParam("id") Long id) {
+        return Response.ok(storage.get(id).toJson()).build();
+    }
+}
+```

@@ -1,46 +1,8 @@
 version: "3"
 
 services:
-  cockroach1:
-    image: cockroachdb/cockroach:v2.0.5
-    hostname: cockroach1
-    command: start --insecure
-    ports:
-    - "26257:26257"
-    - "8080:8080"
-    volumes:
-    - data-volume1:/cockroach/cockroach-data
-    networks:
-      jee8net:
-        aliases:
-        - cockroach-db
-        - postgres-db
 
-  cockroach2:
-    image: cockroachdb/cockroach:v2.0.5
-    hostname: cockroach2
-    command: start --insecure --join=cockroach1
-    volumes:
-    - data-volume2:/cockroach/cockroach-data
-    depends_on:
-    - cockroach1
-    links:
-    - cockroach1
-    networks:
-    - jee8net
-
-  cockroach3:
-    image: cockroachdb/cockroach:v2.0.5
-    hostname: cockroach3
-    command: start --insecure --join=cockroach1
-    volumes:
-    - data-volume3:/cockroach/cockroach-data
-    depends_on:
-    - cockroach1
-    links:
-    - cockroach1
-    networks:
-    - jee8net
+  # TODO add CockroachDB
 
   cloud-native-jpa:
     build:
