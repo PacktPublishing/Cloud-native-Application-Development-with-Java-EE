@@ -1,0 +1,63 @@
+{
+  "info": {
+    "_postman_id": "fe118706-732a-4507-bddc-47d5c1ca1ca7",
+    "name": "Tracing Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/tracing",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tracing",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tracing"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/tracing with Payload",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tracing?payload=Extra trace info on the span.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "tracing"
+          ],
+          "query": [
+            {
+              "key": "payload",
+              "value": "Extra trace info on the span."
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

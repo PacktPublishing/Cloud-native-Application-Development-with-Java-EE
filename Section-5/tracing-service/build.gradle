@@ -12,4 +12,7 @@ lombok {
 
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
+
+    providedCompile 'org.eclipse.microprofile.opentracing:microprofile-opentracing-api:1.1'
+    providedCompile 'io.opentracing:opentracing-api:0.31.0'
 }

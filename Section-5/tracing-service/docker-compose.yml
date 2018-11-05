@@ -11,6 +11,14 @@ services:
     networks:
     - jee8net
 
+  # jaegertracing:
+  #  image: jaegertracing/all-in-one:1.7.0
+  #  ports:
+  #  - 6831:6831/udp
+  #  - 16686:16686
+  #  networks:
+  #  - jee8net
+
 networks:
   jee8net:
     driver: bridge
