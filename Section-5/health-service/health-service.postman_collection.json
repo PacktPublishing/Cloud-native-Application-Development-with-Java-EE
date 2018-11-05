@@ -1,0 +1,94 @@
+{
+  "info": {
+    "_postman_id": "e9c511b8-d398-4b12-bb6e-326f449422dc",
+    "name": "Health Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Not Healthy",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/health-check/down?message=Not healthy anymore.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "health-check",
+            "down"
+          ],
+          "query": [
+            {
+              "key": "message",
+              "value": "Not healthy anymore."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Healthy again",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/health-check/up?message=Healthy again.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "health-check",
+            "up"
+          ],
+          "query": [
+            {
+              "key": "message",
+              "value": "Healthy again."
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
