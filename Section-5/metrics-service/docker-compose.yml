@@ -11,6 +11,35 @@ services:
     networks:
     - jee8net
 
+  prometheus:
+    image: prom/prometheus:v2.4.3
+    volumes:
+    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+    - "9090:9090"
+    depends_on:
+    - node-exporter
+    - metrics-service
+    networks:
+    - jee8net
+
+  node-exporter:
+    image: prom/node-exporter:v0.16.0
+    ports:
+    - "9100:9100"
+    networks:
+    - jee8net
+
+  grafana:
+    image: grafana/grafana:5.3.2
+    ports:
+    - "3000:3000"
+    depends_on:
+    - prometheus
+    networks:
+    - jee8net
+
 networks:
   jee8net:
     driver: bridge
