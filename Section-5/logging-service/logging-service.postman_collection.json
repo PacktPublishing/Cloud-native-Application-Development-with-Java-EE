@@ -1,0 +1,179 @@
+{
+  "info": {
+    "_postman_id": "28a7d7fb-9693-41d0-ad8d-2edc0921bc68",
+    "name": "Logging Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Log DEBUG message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/logger?level=DEBUG&message=Hello DEBUG message.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "logger"
+          ],
+          "query": [
+            {
+              "key": "level",
+              "value": "DEBUG"
+            },
+            {
+              "key": "message",
+              "value": "Hello DEBUG message."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log INFO message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/logger?level=INFO&message=Hello INFO message.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "logger"
+          ],
+          "query": [
+            {
+              "key": "level",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "value": "Hello INFO message."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log WARN message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/logger?level=WARN&message=Hello WARN message.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "logger"
+          ],
+          "query": [
+            {
+              "key": "level",
+              "value": "WARN"
+            },
+            {
+              "key": "message",
+              "value": "Hello WARN message."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log ERROR message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/logger?level=ERROR&message=Hello ERROR message.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "logger"
+          ],
+          "query": [
+            {
+              "key": "level",
+              "value": "ERROR"
+            },
+            {
+              "key": "message",
+              "value": "Hello ERROR message."
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log UNKNOW level message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/logger?level=UNKNOWN&message=Hello UNKNOW level message.",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "logger"
+          ],
+          "query": [
+            {
+              "key": "level",
+              "value": "UNKNOWN"
+            },
+            {
+              "key": "message",
+              "value": "Hello UNKNOW level message."
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
