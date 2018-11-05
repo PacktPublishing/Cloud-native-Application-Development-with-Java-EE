@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  health-service:
+    build:
+      context: .
+    image: health-service:1.0.1
+    ports:
+    - "8080:8080"
+    networks:
+    - jee8net
+
+networks:
+  jee8net:
+    driver: bridge
