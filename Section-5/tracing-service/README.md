@@ -5,6 +5,9 @@ starting point.
 
 ## Video 5.5: Adding trace information using MicroProfile OpenTracing
 
+Tracing the requests in a microservice architecture as the 3rd corner stone of good
+diagnosability to be able to see and analyse the request flow.
+
 ### Step 1: Add the MicroProfile OpenTracing dependency
 
 First, we need to add the following dependencies to the `build.gradle` file.
