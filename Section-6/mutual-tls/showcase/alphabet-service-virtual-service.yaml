@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: alphabet-service
+spec:
+  hosts:
+  - alphabet-service
+  http:
+  - route:
+    - destination:
+        host: alphabet-service
+        subset: v1
+    # the default is 15s
+    timeout: 5s

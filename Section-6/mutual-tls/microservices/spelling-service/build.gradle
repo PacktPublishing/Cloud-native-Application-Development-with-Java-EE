@@ -1,0 +1,21 @@
+plugins {
+    id 'war'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+repositories { jcenter() }
+
+lombok {
+    version = '1.18.2'
+    sha256 = ""
+}
+
+dependencies {
+    providedCompile 'javax:javaee-api:8.0'
+
+    providedCompile 'org.eclipse.microprofile.config:microprofile-config-api:1.2'
+    providedCompile 'org.eclipse.microprofile.metrics:microprofile-metrics-api:1.1.1'
+    providedCompile 'org.eclipse.microprofile.fault-tolerance:microprofile-fault-tolerance-api:1.1.2'
+    providedCompile 'org.eclipse.microprofile.health:microprofile-health-api:1.0'
+    providedCompile 'org.eclipse.microprofile.opentracing:microprofile-opentracing-api:1.1'
+}

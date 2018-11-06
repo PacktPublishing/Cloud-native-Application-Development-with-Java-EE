@@ -1,0 +1,29 @@
+version: "2.3"
+
+services:
+
+  spelling-service:
+    build: .
+    image: lreimer/spelling-service:1.0.1
+    mem_limit: 512m
+    ports:
+      - "18080:8080"  # the HTTP endpoint
+    networks:
+      - istio
+
+  alphabet-service:
+      build: ../alphabet-service/
+      image: lreimer/alphabet-service:1.0.1
+      mem_limit: 512m
+      ports:
+        - "28080:8080"  # the HTTP endpoint
+      networks:
+        istio:
+          aliases:
+            - a-service
+            - b-service
+            - c-service
+
+networks:
+  istio:
+    driver: bridge

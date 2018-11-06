@@ -1,0 +1,16 @@
+version: "2.3"
+
+services:
+
+  hello-istio:
+    build: .
+    image: lreimer/alphabet-service:1.0.1
+    mem_limit: 512m
+    ports:
+      - "18080:8080"  # the HTTP endpoint
+    networks:
+      - istio
+
+networks:
+  istio:
+    driver: bridge

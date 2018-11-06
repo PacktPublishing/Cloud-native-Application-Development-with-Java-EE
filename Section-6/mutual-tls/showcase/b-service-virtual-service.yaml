@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: b-service
+spec:
+  hosts:
+  - b-service
+  http:
+  - route:
+    - destination:
+        host: b-service
+        subset: v1
+    # the default is 15s
+    timeout: 5s
