@@ -1,0 +1,148 @@
+{
+  "info": {
+    "_postman_id": "bfe6769d-0df5-4fd1-a7a7-7653c593d83c",
+    "name": "JWT Authz Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/protected No JWT",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJraWQiOiJcL3ByaXZhdGVLZXkucGVtIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJNUC1KV1QgRGVtbyIsImF1ZCI6IlBhY2t0UHVibGlzaGluZyIsInVwbiI6ImFkbWluIiwiYXV0aF90aW1lIjoxNTQxNTA3Mzk5LCJpc3MiOiJjbG91ZC5uYXRpdi5qYXZhZWUiLCJncm91cHMiOlsiYWRtaW4iLCJ1c2VyIl0sImV4cCI6MTU3MzA0MzM5OSwiaWF0IjoxNTQxNTA3Mzk5LCJqdGkiOiJhLTEyMyJ9.LuTL8ulLyN6ehF6oevhki6ep4piBeW8a4BD9M96aqIwWQTOeq6vLm8LUdcbzL6eVFZ1k2Nixm6bZZQjMSfZe0HonEIgubvrQk4G7u7XiEWdjZbW5_m_eEhnQBjHINlMao9YJ1TT2IqtXnJYCf5vwkOuXNtsVI6Woe0u6mQLIZ0orhfY6j_1qqY18WR1Kl4lFavHh6YEwHLL19YiNrbp7d3Qgu__tdowyHSt63s2wUs7YBsdLuqmcMZi81rMYaUNYetjORN61B0F1SM-0QZQl3uD2NOHkfqiiJYHznW2pdBw9v3KgjauqJKAVFisKk-90DC7_TLWLXBVctCtnqdAE5Q",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/protected",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "protected"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/protected/all With JWT",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJraWQiOiJcL3ByaXZhdGVLZXkucGVtIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJNUC1KV1QgRGVtbyIsImF1ZCI6IlBhY2t0UHVibGlzaGluZyIsInVwbiI6ImFkbWluIiwiYXV0aF90aW1lIjoxNTQxNTA3NjEwLCJpc3MiOiJjbG91ZC5uYXRpdi5qYXZhZWUiLCJncm91cHMiOlsidXNlciJdLCJleHAiOjE1NzMwNDM2MTAsImlhdCI6MTU0MTUwNzYxMCwianRpIjoiYS0xMjMifQ.LAt4rj6B7J28AdUfILrn2P4cxtx9VraXiQDQVquoGJ7zEEpSb8FoBhHTGIob2Zaxo0-JRMk9tP_M0JPYoU-7xekXJp4AvUjjLE-hKDeG8gQ-9ABWK8Csq2oYcfw4CATIlkssYmx93_BSqueo5_pFNLScAQT3mLj5ywK3gqybLeDpLIYlV2oyUg9IsxxBXpnZXU7uxkcsz6qm3PEriIJ8DkBhS6T6pcJ4wfDSYEjPg7FF8gPhYtBBxOLWUXQ7fzqquiO5FASw578yxrY_QIDgRhsuNFZrQ_tKkxHN7Be5FZKXLDg0ZCR3YuIEpBONgSat-clFVTJt0MZfIUHmqxJ9QQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/protected/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "protected",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/protected/admin With Admin JWT",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJraWQiOiJcL3ByaXZhdGVLZXkucGVtIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJNUC1KV1QgRGVtbyIsImF1ZCI6IlBhY2t0UHVibGlzaGluZyIsInVwbiI6ImFkbWluIiwiYXV0aF90aW1lIjoxNTQxNTA3Mzk5LCJpc3MiOiJjbG91ZC5uYXRpdi5qYXZhZWUiLCJncm91cHMiOlsiYWRtaW4iLCJ1c2VyIl0sImV4cCI6MTU3MzA0MzM5OSwiaWF0IjoxNTQxNTA3Mzk5LCJqdGkiOiJhLTEyMyJ9.LuTL8ulLyN6ehF6oevhki6ep4piBeW8a4BD9M96aqIwWQTOeq6vLm8LUdcbzL6eVFZ1k2Nixm6bZZQjMSfZe0HonEIgubvrQk4G7u7XiEWdjZbW5_m_eEhnQBjHINlMao9YJ1TT2IqtXnJYCf5vwkOuXNtsVI6Woe0u6mQLIZ0orhfY6j_1qqY18WR1Kl4lFavHh6YEwHLL19YiNrbp7d3Qgu__tdowyHSt63s2wUs7YBsdLuqmcMZi81rMYaUNYetjORN61B0F1SM-0QZQl3uD2NOHkfqiiJYHznW2pdBw9v3KgjauqJKAVFisKk-90DC7_TLWLXBVctCtnqdAE5Q",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/protected/admin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "protected",
+            "admin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/protected/admin With User JWT",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJraWQiOiJcL3ByaXZhdGVLZXkucGVtIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJNUC1KV1QgRGVtbyIsImF1ZCI6IlBhY2t0UHVibGlzaGluZyIsInVwbiI6ImFkbWluIiwiYXV0aF90aW1lIjoxNTQxNTA3NjEwLCJpc3MiOiJjbG91ZC5uYXRpdi5qYXZhZWUiLCJncm91cHMiOlsidXNlciJdLCJleHAiOjE1NzMwNDM2MTAsImlhdCI6MTU0MTUwNzYxMCwianRpIjoiYS0xMjMifQ.LAt4rj6B7J28AdUfILrn2P4cxtx9VraXiQDQVquoGJ7zEEpSb8FoBhHTGIob2Zaxo0-JRMk9tP_M0JPYoU-7xekXJp4AvUjjLE-hKDeG8gQ-9ABWK8Csq2oYcfw4CATIlkssYmx93_BSqueo5_pFNLScAQT3mLj5ywK3gqybLeDpLIYlV2oyUg9IsxxBXpnZXU7uxkcsz6qm3PEriIJ8DkBhS6T6pcJ4wfDSYEjPg7FF8gPhYtBBxOLWUXQ7fzqquiO5FASw578yxrY_QIDgRhsuNFZrQ_tKkxHN7Be5FZKXLDg0ZCR3YuIEpBONgSat-clFVTJt0MZfIUHmqxJ9QQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/protected/admin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "protected",
+            "admin"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

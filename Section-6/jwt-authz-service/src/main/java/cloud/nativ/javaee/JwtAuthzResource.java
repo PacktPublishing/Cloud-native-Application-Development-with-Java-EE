@@ -55,5 +55,4 @@ public class JwtAuthzResource {
                 .add("subject", jsonWebToken.getSubject())
                 .build();
     }
-
 }
