@@ -1,0 +1,11 @@
+{
+  "iss": "cloud.nativ.javaee",
+  "jti": "a-123",
+  "sub": "MP-JWT Demo",
+  "aud": "PacktPublishing",
+  "upn": "admin",
+  "groups": [
+    "admin",
+    "user"
+  ]
+}
