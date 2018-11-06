@@ -13,5 +13,5 @@ lombok {
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
 
-    providedCompile 'org.eclipse.microprofile.metrics:microprofile-metrics-api:1.1.1'
+    // TODO add MP Metrics dependency
 }
