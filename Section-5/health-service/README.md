@@ -5,6 +5,9 @@ starting point.
 
 ## Video 5.4: Adding readiness probes using MicroProfile Health
 
+When running your microservices using a cluster scheduler like Kubernetes you have to provide endpoints
+to check if your service is healthy and ready to serve requests.
+
 ### Step 1: Add MicroProfile Health dependency
 
 ```groovy
