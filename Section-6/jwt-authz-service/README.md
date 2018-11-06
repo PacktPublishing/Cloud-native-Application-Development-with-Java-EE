@@ -27,6 +27,12 @@ as well as declare the used roles.
 @DeclareRoles({"admin", "user"})
 ```
 
+Also we need to configure the MicroProfile JWT API. This will be dependent on the application
+server you are using.
+
+1. Add the Public Key certificate for signature validation (see `src/main/resources/publicKey.pem`)
+2. Specify the accepted issuer claim for any JSON web tokens (see `src/main/resources/payara-mp-jwt.properties`)
+
 ### Step 3: Secure the REST resource using Java EE Security annotations
 
 Now we add the following REST resources to the codebase. We use annotations to specify
