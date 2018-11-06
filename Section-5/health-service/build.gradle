@@ -13,5 +13,5 @@ lombok {
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
 
-    providedCompile 'org.eclipse.microprofile.health:microprofile-health-api:1.0'
+    // TODO add MicroProfile Health dependency
 }
