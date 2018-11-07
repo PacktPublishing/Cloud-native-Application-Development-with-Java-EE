@@ -41,12 +41,6 @@ $ http get spelling.cloud/api/spelling\?word=hello
 
 $ http get spelling.cloud/api/spelling\?word=abc Accept-Language:de
 $ http get spelling.cloud/api/spelling\?word=hello Accept-Language:de
-
-$ kubectl apply -f showcases/alphabet/alphabet-service-delay.yaml
-$ http get spelling.cloud/api/spelling\?word=hello
-
-$ kubectl apply -f showcases/alphabet/alphabet-service-fault.yaml
-$ http get spelling.cloud/api/spelling\?word=hello
 ```
 
 ### Step X: Delete Kubernetes cluster
