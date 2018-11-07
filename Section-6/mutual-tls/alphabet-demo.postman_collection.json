@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "2bc4864a-3186-4e30-9466-ac21ffeecc8b",
+		"name": "Alphabet Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET abc (Default)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://spelling.cloud/api/spelling?word=abc",
+					"protocol": "http",
+					"host": [
+						"spelling",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"spelling"
+					],
+					"query": [
+						{
+							"key": "word",
+							"value": "abc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET hello (Default)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://spelling.cloud/api/spelling?word=hello",
+					"protocol": "http",
+					"host": [
+						"spelling",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"spelling"
+					],
+					"query": [
+						{
+							"key": "word",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET abc (German)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://spelling.cloud/api/spelling?word=abc",
+					"protocol": "http",
+					"host": [
+						"spelling",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"spelling"
+					],
+					"query": [
+						{
+							"key": "word",
+							"value": "abc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET hello (German)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://spelling.cloud/api/spelling?word=hello",
+					"protocol": "http",
+					"host": [
+						"spelling",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"spelling"
+					],
+					"query": [
+						{
+							"key": "word",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET The End",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "de",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://spelling.cloud/api/spelling?word=the end",
+					"protocol": "http",
+					"host": [
+						"spelling",
+						"cloud"
+					],
+					"path": [
+						"api",
+						"spelling"
+					],
+					"query": [
+						{
+							"key": "word",
+							"value": "the end"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
