@@ -5,8 +5,9 @@ starting point.
 
 ## Video 4.2: Using JPA with Cloud-native databases
 
-In this video we are going to use a Cockroach DB as NewSQL database to store
-relational as well as JSON data.
+In Java EE the API for objection relational mapping is JPA. It can be used to
+store relational as well as JSON data in a cloud native databases such as CockroachDB
+by simply combining JPA with JSON-P.
 
 ### Step 1: Database Infrastructure Setup
 
@@ -105,7 +106,7 @@ COPY build/postgresql/* /opt/payara/libs/
 COPY build/libs/cloud-native-jpa.war /opt/payara/deployments/
 
 CMD ["--noCluster", "--addjars", "/opt/payara/libs/", "--postdeploycommandfile", "/opt/payara/post-deploy.asadmin"]
-``` 
+```
 
 ### Step 3: Add JPA persistence for CloudNativeEvents
 
@@ -185,7 +186,7 @@ We also need to configure the persistence unit, so add the following content to 
 
         <class>cloud.nativ.javaee.CloudNativeEvent</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        
+
         <!-- Disable share cache -->
         <shared-cache-mode>NONE</shared-cache-mode>
 

@@ -5,6 +5,11 @@ starting point.
 
 ## Video 4.5: Distributed state using the JCache API
 
+Sometime you may want to store and cache temporary data in your clustered microservice
+instances. Usually you want that all instances see the same state, so it needs to be
+replicated between them. The JCache API provides a HashMap like programming API to access
+and use an in-memory datagrid technology like Hazelcast.
+
 ### Step 1: Infrastructure setup
 
 We are going to simulate a clustered environment by running the same microservice
@@ -19,7 +24,7 @@ twice. Add the following to your `docker-compose.yml`
     - "18080:8080"
     networks:
     - jee8net
-  
+
   jcache-api-2:
     image: jcache-api:1.0.1
     ports:

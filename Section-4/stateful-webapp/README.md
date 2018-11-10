@@ -5,6 +5,11 @@ starting point.
 
 ## Video 4.4: Session replication for stateful Java webapps
 
+Cloud native applications and microservices ought to be stateless. Unfortunately,
+some Java EE APIs such as JSF or even JPA are somewhat stateful. In order to use
+these in a cloud native environment they require that the state is replicated
+between in the instances.
+
 ### Step 1: Infrastructure setup
 
 We are going to start the same webapp twice, as two separate instances. Edit your

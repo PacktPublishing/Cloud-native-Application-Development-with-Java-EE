@@ -5,6 +5,11 @@ starting point.
 
 ## Video 4.3: Using NoSQL databases with Java EE
 
+Sometimes relational object mapping using JPA is not a good fit for your data model
+and you may want to use a NoSQL data store. While there is no dedicated API, you
+can easily retrofit the functionality by using CDI, JSON-P or JSON-B in combination
+with the native driver like the Mongo DB Java client.
+
 ### Step 1: Infrastructure Setup for MongoDB
 
 Add the following definition to your `docker-compose.yml` file.
@@ -16,7 +21,7 @@ Add the following definition to your `docker-compose.yml` file.
     - "27017:27017"
     networks:
     - jee8net
-``` 
+```
 
 ### Step 2: CDI Integration of MongoDB Java client
 
@@ -131,7 +136,7 @@ you a more JPA like feeling. In combination with JSON-B we can take care of the 
 
 We create the following POJO class and annotate it using the Morphia annotations (NOT the JPA equivalient!) and also
 JSON-B annotations for correct marshalling.
- 
+
 ```java
 @Data
 @Entity("pojos")
