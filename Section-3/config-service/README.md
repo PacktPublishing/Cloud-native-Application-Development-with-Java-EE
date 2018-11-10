@@ -5,6 +5,11 @@ starting point.
 
 ## Video 3.1: Enabling multi-environment configuration using MicroProfile Config
 
+According to the 12-factor app principles any configuration values should be stored
+in the environment and not in the application. Using MicroProfile Config APIs we can
+easily access ENV variables, system properties or other config sources and inject
+the configuration properties using CDI.
+
 ### Step 1: Add MicroProfile Config dependency
 
 In order to use the config API, add the following dependency to your `build.gradle` file.
@@ -66,7 +71,7 @@ public class JsonObjectConverter implements Converter<JsonObject> {
 }
 ```
 
-You need to register all custom converters in the service loader file 
+You need to register all custom converters in the service loader file
 `src/main/resources/META-INF/org.eclipse.microprofile.config.spi.Converter`.
 
 ```java

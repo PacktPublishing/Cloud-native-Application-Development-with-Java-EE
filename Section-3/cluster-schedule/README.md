@@ -5,6 +5,11 @@ starting point.
 
 ## Video 3.3: Clustered Scheduling and Coordination with EJBs
 
+Scheduled tasks can easily be implemented using automatic or programmatic timer EJBs.
+Depending on the requirements you may want to execute the scheduled tasks as a
+cluster singleton only. So you need to coordinate the instances and use a distributed
+data structure like a distributed lock.
+
 ### Step 1: Multiple deployments with Docker Compose
 
 To simulate a clustered deployment we are going to start the same service as two individual containers.
@@ -101,7 +106,7 @@ public class ClusterScheduleProgBean {
 }
 ```
 
-### Step 4: Synchronize Clustered Timer with Hazelcast and Distributed Locks 
+### Step 4: Synchronize Clustered Timer with Hazelcast and Distributed Locks
 
 Currently the individual timer EJBs all run concurrently when running multiple instances. This may not be desirable.
 To avoid this, we can use a distributed lock from Hazelcast to synchronize the instances.

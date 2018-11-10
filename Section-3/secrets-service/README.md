@@ -5,6 +5,10 @@ starting point.
 
 ## Video 3.2: Handling secrets in Cloud-native Java EE microservices
 
+Secrets are sensitive information and configuration properties and thus deserve
+special treatment. They should never be version controlled, and provided dynamically
+either via ENV variable or file leveraging the Kubernetes Secrets mechanism.
+
 ### Step 1: Secure usage of ENV variables
 
 Create a `.env` file for local development, make sure to never commit this
@@ -36,7 +40,7 @@ private Provider<String> envPassword;
 
 ### Step 2: Secure usage of secrets files
 
-Another popular option is to store secrets as individual files and mount these into a container. 
+Another popular option is to store secrets as individual files and mount these into a container.
 Extend the `docker-compose.yaml` with the following:
 
 ```yaml
@@ -61,11 +65,11 @@ private Provider<String> secretUsername;
 @ConfigProperty(name = "secret.user.password")
 private Provider<String> secretPassword;
 ```
- 
+
 
 ### Step 3: Using Secrets in Kubernetes
 
-First we need encode the secret user name and password in the console. 
+First we need encode the secret user name and password in the console.
 
 ```
 $ echo -n 'secret-agent' | base64
@@ -74,7 +78,7 @@ $ echo -n 'jamesbond007' | base64
 amFtZXNib25kMDA3
 ```
 
-Next, we create a Kubernetes YAML definition of a Secret in 
+Next, we create a Kubernetes YAML definition of a Secret in
 
 ```yaml
 apiVersion: v1
@@ -87,7 +91,7 @@ data:
   secret.user.password: amFtZXNib25kMDA3
 ```
 
-You now have two options to use the Secret in Kubernetes: mount the secrets as ENV variables (see Step 1) or mount the 
+You now have two options to use the Secret in Kubernetes: mount the secrets as ENV variables (see Step 1) or mount the
 secrets as files (see Step 2). To use these, create a file `src/main/kubernetes/secrets-service-deployment.yaml`.
 
 ```yaml
