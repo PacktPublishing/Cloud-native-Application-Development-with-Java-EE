@@ -5,6 +5,9 @@ starting point.
 
 ## Video 1.4: Getting started with Java EE 8 microservices
 
+Depending on the the language and environment, microservice development can be hard.
+But getting started with Java EE 8 microservice development is super easy and straightforward.
+
 ### Step 1a: Build and dependency setup for Gradle
 
 Create a `build.gradle` file, apply the WAR plugin and add the Java EE 8
@@ -66,14 +69,15 @@ public class HelloWorldResource {
 Build everything using `gradlew assemble` and use your IDE or the app server management console to deploy the WAR file.
 The REST API should be accessible under http://localhost:8080/javaee8-service/api/hello
 
-
 ## Video 1.5: Containerizing Java EE 8 microservices
+
+Every microservice is packaged, deployed and run as a container. Docker currently is the predominant technology to achieve this.
 
 ### Step 1: Building and running containerized Java EE 8 microservices locally
 
 Create a new file called `Dockerfile` and add the following content:
 ```
-FROM qaware/zulu-alpine-payara-micro:8u181-5.182
+FROM qaware/zulu-alpine-payara-micro:8u181-5.183
 
 COPY build/libs/javaee8-service.war /opt/payara/deployments/
 ```
@@ -97,7 +101,7 @@ COPY . /codebase/
 WORKDIR /codebase
 RUN ./gradlew build
 
-FROM qaware/zulu-alpine-payara-micro:8u181-5.182
+FROM qaware/zulu-alpine-payara-micro:8u181-5.183
 
 COPY --from=builder /codebase/build/libs/javaee8-service.war /opt/payara/deployments/
 ```
@@ -117,8 +121,10 @@ ENTRYPOINT ["java", "-server", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGro
 CMD ["--deploymentDir", "/opt/payara/deployments"]
 ```
 
-
 ## Video 1.6: Infrastructure Composition
+
+Every microservice needs an ecosystem (database, service discovery, edge serve) to run in.
+It is crucial that this environment can be setup and run locally for short development cycles.
 
 ### Step 1: Writing a `docker-compose.yml` file for Java EE 8 microservice
 
@@ -182,8 +188,11 @@ Add the following YAML to your `docker-compose.yml` to add a message queue and a
     - jee8net
 ```
 
-
 ## Video 1.7: Deploying and Running Java EE on Kubernetes
+
+Manually scheduling and orchestrating multiple Docker containers is complex or even
+impossible. Kubernetes is a cluster scheduler and cluster orchestrator, it is the
+de-facto standard to run cloud native applications.
 
 ### Step 1: Use Docker and Docker Compose to deploy to local Kubernetes
 
