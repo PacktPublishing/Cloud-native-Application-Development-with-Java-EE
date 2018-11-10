@@ -8,9 +8,7 @@ Throughout this course, we address the different challenges you need to master t
 
 ## What will you learn
 
-This course will be your guide to building cloud-native applications using Java EE 8. Throughout this course, you will learn how to address and solve the different challenges you are faced with when building truly cloud-native applications with Java EE.
-
-This course is packed with step-by-step instructions and realistic examples that are directly applicable in practice. The different sections of this course focus on the important topics and challenges of cloud-native application development such as communication, resiliency, state handling, and observability, and how these can be addressed using the latest Java EE 8 APIs.
+This course will be your guide to building cloud-native applications using Java EE 8. Throughout this course, you will learn how to address and solve the different challenges you are faced with when building truly cloud-native applications with Java EE. It is packed with step-by-step instructions and realistic examples that are directly applicable in practice. The different sections of this course focus on the important topics and challenges of cloud-native application development such as communication, resiliency, state handling, and observability, and how these can be addressed using the latest Java EE 8 APIs.
 
 1.	Design and build cloud native applications using Java EE 8.
 2.	Deploy and run Java EE 8 microservices using Docker and Kubernetes
