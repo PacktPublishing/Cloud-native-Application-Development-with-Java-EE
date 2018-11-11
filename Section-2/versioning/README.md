@@ -5,6 +5,10 @@ starting point.
 
 ## Video 2.1: Building and versioning REST APIs with JAX-RS
 
+When evolving a REST interface you need to make sure you do not break existing consumers
+by versioning the endpoints. There are two approaches to accomplish this, and both can be
+implemented with JAX-RS: URL based versioning and media type versioning.
+
 ### Step 1: URL based versioning using sub resources
 
 Add the following resource class as the root of your URL based versioning scheme.

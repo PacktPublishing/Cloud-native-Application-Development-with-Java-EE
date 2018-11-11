@@ -5,6 +5,10 @@ starting point.
 
 ## Video 2.5: Building message-driven microservices with Java EE
 
+When building microservice architectures you should strive for loose coupling between
+the services by using asynchronous, message driven communication. By using JMS in combination
+with JSON-P you can implement flexible messaging logic easily.
+
 ### Step 1: Add Message Queue infrastructure
 
 Add the following YAML snippet to your `docker-compose.yml` file to create a message queue.

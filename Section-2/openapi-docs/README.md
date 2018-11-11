@@ -5,6 +5,11 @@ starting point.
 
 ## Video 2.4: API documentation with MicroProfile Open API
 
+For REST APIs to be easily consumable by clients they should provide good documentation.
+The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to
+RESTful APIs which allows both humans and computers to discover and understand the
+capabilities of the service.
+
 ### Step 1: Add MicroProfile Open API dependency
 
 ```groovy

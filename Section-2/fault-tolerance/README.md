@@ -5,7 +5,12 @@ starting point.
 
 ## Video 2.3: Resilient service invocation using MicroProfile Fault Tolerance
 
-### Step 1: Add MicroProfile dependencies 
+Everything fails, all the time. When invoking remote endpoints
+you must make your logic robust and tolerant to failure by adding timeouts, retries,
+circuit breaker or fallback routines. The MicroProfile Fault Tolerance APIs
+provide the means to do this.
+
+### Step 1: Add MicroProfile Fault Tolerance dependency
 
 Add the following dependencies to the `build.gradle` file.
 
@@ -45,7 +50,7 @@ public interface OpenWeatherMap {
             throw new IllegalArgumentException(e);
         }
     }
-    
+
     public String getWeather(String city) {
         JsonObject response = openWeatherMap.getWeather(city, "b6907d289e10d714a6e88b30761fae22");
 
@@ -56,7 +61,7 @@ public interface OpenWeatherMap {
 
 ### Step 4: Add resiliency annotations and fallback method
 
-Add the following annotations to the repository method 
+Add the following annotations to the repository method
 ```java
     @CircuitBreaker(delay = 3000L, failureRatio = 0.75, requestVolumeThreshold = 10)
     // @Retry(delay = 100, maxDuration = 2, durationUnit = ChronoUnit.SECONDS, maxRetries = 2)
