@@ -1,5 +1,7 @@
 # Cloud native Application Development with Java EE
+This is the code repository for [Cloud-Native Application Development with Java EE [Video]](https://www.packtpub.com/application-development/cloud-native-application-development-java-ee-video), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
 
+## About the Video Course
 In a world of modern business models and digital products the use of monolithic applications run classical infrastructure is just not feasible anymore. Many organizations have already begun resorting to the elasticity of the cloud as it offers them greater agility, availability, resilience and portability.
 
 This video course is a one-stop solution for developers and architects, teaching them to understand the challenges faced in building cloud native applications, using Java EE 8 and some additional well known open-source components and APIs. In combination, these APIs enable you to easily build hyperscale, elastic, loosely coupled, reliable, observable and secure microservices.
@@ -23,3 +25,11 @@ This course will be your guide to building cloud-native applications using Java 
 ## About the author
 
 Mario-Leander Reimer is a chief technologist for QAware GmbH. He is a senior Java developer and architect with several years of experience in building complex distributed system architectures. He is continuously looking for innovations and ways to combine and apply state-of-the-art technology and open source software components in real-world customer projects. He studied computer science at Rosenheim and Staffordshire University and nowadays he is teaching cloud computing as a part time lecturer. He is a regular speaker at national and international conferences on various topics in software engineering.
+
+
+## Related Products
+* [Building RESTful Web Services with Java EE 8](https://www.packtpub.com/application-development/building-restful-web-services-java-ee-8)
+
+* [Building Web Services with Java EE 8 [Video]](https://www.packtpub.com/application-development/building-web-services-java-ee-8-video)
+
+* [Advanced Cloud Native Go [Video]](https://www.packtpub.com/application-development/advanced-cloud-native-go-video)
