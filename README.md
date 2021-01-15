@@ -1,8 +1,3 @@
-## $5 Tech Unlocked 2021!
-[Buy and download this Video for only $5 on PacktPub.com](https://www.packtpub.com/product/cloud-native-application-development-with-java-ee-video/9781789534764)
------
-*The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
-
 # Cloud native Application Development with Java EE
 This is the code repository for [Cloud-Native Application Development with Java EE [Video]](https://www.packtpub.com/application-development/cloud-native-application-development-java-ee-video), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
 
